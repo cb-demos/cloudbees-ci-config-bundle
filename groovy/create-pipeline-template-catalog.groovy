@@ -70,14 +70,14 @@ if (microBlogJob == null) {
   def p = jenkins.createProjectFromXML(name, new ByteArrayInputStream(frontendJobXml.getBytes("UTF-8")));
 
   logger.info("created $name job")
-  
+  def backendName = "microblog-backend"
   //microblog-backend job from Pipeline Template
   def backendJobXml = """
   <org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch@2.21">
     <properties>
       <com.cloudbees.pipeline.governance.templates.classic.multibranch.GovernanceMultibranchPipelinePropertyImpl plugin="cloudbees-workflow-template@3.7">
         <instance>
-          <model>workshopCatalog/python</model>
+          <model>cb-demo/python</model>
           <values class="tree-map">
             <entry>
               <string>gcpProject</string>
@@ -111,9 +111,9 @@ if (microBlogJob == null) {
   </org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
   """
 
-  def backendProject = jenkins.createProjectFromXML(name, new ByteArrayInputStream(backendJobXml.getBytes("UTF-8")));
+  def backendProject = jenkins.createProjectFromXML(backendName, new ByteArrayInputStream(backendJobXml.getBytes("UTF-8")));
 
-  logger.info("created $backendJob job")  
+  logger.info("created $backendName job")  
   
 } else {
   logger.info("$name job already exists")
