@@ -12,7 +12,7 @@ unclassified:
   globallibraries:
     libraries:
     - defaultVersion: "master"
-      name: "cb-days-library"
+      name: "cb-days"
       retriever:
         modernSCM:
           scm:
