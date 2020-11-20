@@ -40,4 +40,4 @@ credentials:
           owner: "REPLACE_GITHUB_ORG"
           privateKey: "${gitHubAppPrivateKey}"
 groovy:
-  - url: https://raw.githubusercontent.com/REPLACE_GITHUB_ORG/cloudbees-ci-config-bundle/master/groovy/create-pipeline-template-job.groovy 
+  - url: https://raw.githubusercontent.com/REPLACE_GITHUB_ORG/cloudbees-ci-config-bundle/master/groovy/create-pipeline-template-catalog.groovy 
