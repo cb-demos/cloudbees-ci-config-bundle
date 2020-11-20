@@ -11,7 +11,7 @@ unclassified:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
     hookSecretConfigs:
-    - credentialsId: "cloudbees-ci-workshop-github-webhook-secret"
+    - credentialsId: "cloudbees-ci-github-webhook-secret"
   globallibraries:
     libraries:
     - defaultVersion: "master"
@@ -20,7 +20,7 @@ unclassified:
         modernSCM:
           scm:
             github:
-              credentialsId: "cloudbees-ci-workshop-github-app"
+              credentialsId: "github-sa"
               repoOwner: "REPLACE_GITHUB_ORG"
               repository: "pipeline-library"
 credentials:
@@ -28,14 +28,16 @@ credentials:
     domainCredentials:
     - credentials:
       - string:
-          description: "Webhook secret for CloudBees CI Workshop GitHub App"
-          id: "cloudbees-ci-workshop-github-webhook-secret"
+          description: "Webhook secret for CloudBees CI GitHub App"
+          id: "cloudbees-ci-github-webhook-secret"
           scope: SYSTEM
           secret: "${gitHubWebhookSecret}"
       - gitHubApp:
           apiUri: "https://api.github.com"
-          appID: "77562"
-          description: "CloudBees CI Workshop GitHub App credential"
-          id: "cloudbees-ci-workshop-github-app"
+          appID: "89390"
+          description: "CloudBees CI REPLACE_GITHUB_ORG GitHub App credential"
+          id: "github-sa"
           owner: "REPLACE_GITHUB_ORG"
           privateKey: "${gitHubAppPrivateKey}"
+groovy:
+  - url: https://raw.githubusercontent.com/REPLACE_GITHUB_ORG/cloudbees-ci-config-bundle/master/groovy/create-pipeline-template-job.groovy 
