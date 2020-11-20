@@ -6,7 +6,7 @@ unclassified:
     - "build"
     - "web"
     enabled: true
-    gracePeriod: 1500
+    gracePeriod: 39600
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
@@ -15,7 +15,7 @@ unclassified:
   globallibraries:
     libraries:
     - defaultVersion: "master"
-      name: "pipeline-library"
+      name: "cb-days-library"
       retriever:
         modernSCM:
           scm:
