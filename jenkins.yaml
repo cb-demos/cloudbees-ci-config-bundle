@@ -9,9 +9,6 @@ unclassified:
     gracePeriod: 39600
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
-  gitHubPluginConfig:
-    hookSecretConfigs:
-    - credentialsId: "cloudbees-ci-github-webhook-secret"
   globallibraries:
     libraries:
     - defaultVersion: "master"
