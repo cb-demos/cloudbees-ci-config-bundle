@@ -13,7 +13,7 @@ if (job != null) {
 }
 
 //5-6am Monday thru Friday
-def cronSchedule = "H 5 * * 1-5"
+def cronSchedule = "H 11 * * 1-5"
 
 //unhibernate job
 def unhibernateJobXml = """
