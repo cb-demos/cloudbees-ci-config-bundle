@@ -37,5 +37,5 @@ credentials:
           owner: "REPLACE_GITHUB_ORG"
           privateKey: "${gitHubAppPrivateKey}"
 groovy:
-  - url: https://raw.githubusercontent.com/REPLACE_GITHUB_ORG/cloudbees-ci-config-bundle/master/groovy/create-pipeline-template-catalog.groovy
-  - url: https://raw.githubusercontent.com/REPLACE_GITHUB_ORG/cloudbees-ci-config-bundle/master/groovy/create-unhibernate-job.groovy
+  - url: https://raw.githubusercontent.com/REPLACE_GITHUB_ORG/cloudbees-ci-config-bundle/main/groovy/create-pipeline-template-catalog.groovy
+  - url: https://raw.githubusercontent.com/REPLACE_GITHUB_ORG/cloudbees-ci-config-bundle/main/groovy/create-unhibernate-job.groovy
