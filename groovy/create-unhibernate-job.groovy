@@ -12,7 +12,8 @@ if (job != null) {
   job.delete()
 }
 
-//5-6am Monday thru Friday
+//11-12 UTC Monday thru Friday, update for your timezone
+//this would be 6-7am EST M-F
 def cronSchedule = "H 11 * * 1-5"
 
 //unhibernate job
