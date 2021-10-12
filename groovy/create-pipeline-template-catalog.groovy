@@ -110,7 +110,7 @@ if (microBlogJob == null) {
   </org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
   """
 
-  def p = jenkins.createProjectFromXML("Insurance Frontend", new ByteArrayInputStream(frontendInsuranceXML.getBytes("UTF-8")));
+  def insuranceFrontend = jenkins.createProjectFromXML("Insurance Frontend", new ByteArrayInputStream(frontendInsuranceXML.getBytes("UTF-8")));
 
   def backendName = "microblog-backend"
   //microblog-backend job from Pipeline Template
@@ -196,7 +196,7 @@ if (microBlogJob == null) {
 </org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
   """
 
-  def backendProject = jenkins.createProjectFromXML("Insurance Backend", new ByteArrayInputStream(insuranceBackendXML.getBytes("UTF-8")));
+  def insuranceBackend = jenkins.createProjectFromXML("Insurance Backend", new ByteArrayInputStream(insuranceBackendXML.getBytes("UTF-8")));
 
   
 } else {
