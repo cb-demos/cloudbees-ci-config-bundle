@@ -13,15 +13,6 @@ def jenkins = Jenkins.instance
 def name = "microblog-frontend"
 def microBlogJob = jenkins.getItemByFullName(name)
 if (microBlogJob == null) {
-  //Pipeline Template Catalog
-  SCMSource scm = new GitSCMSource("https://github.com/REPLACE_GITHUB_ORG/pipeline-template-catalog.git");
-  scm.setCredentialsId("github-sa");
-  TemplateCatalog catalog = new TemplateCatalog(scm, "master");
-  catalog.setUpdateInterval("1h");
-  GlobalTemplateCatalogManagement.get().addCatalog(catalog);
-  GlobalTemplateCatalogManagement.get().save();
-  logger.info("Creating new Pipeline Template Catalog");
-  catalog.updateFromSCM(); 
 
   //microblog-fronted job from Pipeline Template
   def frontendJobXml = """
