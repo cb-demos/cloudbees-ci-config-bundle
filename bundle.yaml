@@ -2,6 +2,7 @@ apiVersion: "1"
 version: "1"
 id: "cloudbees-ci-REPLACE_CONTROLLER_NAME"
 description: "CloudBees CI configuration bundle for CloudBees CI Field Demo"
+availabilityPattern: "REPLACE_CONTROLLER_NAME"
 plugins:
   - "plugins.yaml"
 jcasc:
