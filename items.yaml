@@ -2,12 +2,160 @@ removeStrategy:
   rbac: SYNC
   items: NONE
 items:
-- kind: pipeline
-  name: unhibernate
-  concurrentBuild: false
+- orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: -1
+  kind: multibranch
+  displayName: Insurance Backend
+  projectFactory:
+    fromTemplateFactory:
+      catalogName: cb-demo
+      templateDirectory: python-poetry
+  name: Insurance Backend
+  sourcesList:
+  - branchSource:
+      source:
+        github:
+          apiUri: https://api.github.com
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - gitHubPullRequestDiscovery:
+              strategyId: 1
+          - gitHubForkDiscovery:
+              trust:
+                gitHubTrustPermissions: {}
+              strategyId: 1
+          repoOwner: REPLACE_GITHUB_ORG
+          credentialsId: github-sa
+          id: Python
+          repository: insurance-backend
+          configuredByUrl: false
+          repositoryUrl: https://github.com/REPLACE_GITHUB_ORG/insurance-backend
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 1d
+- orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: -1
+  kind: multibranch
+  displayName: Insurance Frontend
+  projectFactory:
+    fromTemplateFactory:
+      catalogName: cb-demo
+      templateDirectory: react-app
+  name: Insurance Frontend
+  sourcesList:
+  - branchSource:
+      source:
+        github:
+          apiUri: https://api.github.com
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - gitHubPullRequestDiscovery:
+              strategyId: 1
+          - gitHubForkDiscovery:
+              trust:
+                gitHubTrustPermissions: {}
+              strategyId: 1
+          repoOwner: REPLACE_GITHUB_ORG
+          credentialsId: github-sa
+          id: React
+          repository: insurance-frontend
+          configuredByUrl: false
+          repositoryUrl: https://github.com/REPLACE_GITHUB_ORG/insurance-frontend
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 1d
+- orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: -1
+  kind: multibranch
+  displayName: microblog-backend
+  projectFactory:
+    fromTemplateFactory:
+      catalogName: cb-demo
+      templateDirectory: python
+  name: microblog-backend
+  sourcesList:
+  - branchSource:
+      source:
+        github:
+          apiUri: https://api.github.com
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - gitHubPullRequestDiscovery:
+              strategyId: 1
+          - gitHubForkDiscovery:
+              trust:
+                gitHubTrustPermissions: {}
+              strategyId: 1
+          repoOwner: REPLACE_GITHUB_ORG
+          credentialsId: github-sa
+          id: Python
+          repository: microblog-backend
+          configuredByUrl: false
+          repositoryUrl: https://github.com/REPLACE_GITHUB_ORG/microblog-backend
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 1d
+- orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: -1
+  kind: multibranch
+  displayName: microblog-frontend
+  projectFactory:
+    fromTemplateFactory:
+      catalogName: cb-demo
+      templateDirectory: vuejs-app
+  name: microblog-frontend
+  sourcesList:
+  - branchSource:
+      source:
+        github:
+          apiUri: https://api.github.com
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - gitHubPullRequestDiscovery:
+              strategyId: 1
+          - gitHubForkDiscovery:
+              trust:
+                gitHubTrustPermissions: {}
+              strategyId: 1
+          repoOwner: REPLACE_GITHUB_ORG
+          credentialsId: github-sa
+          id: VueJS
+          repository: microblog-frontend
+          configuredByUrl: false
+          repositoryUrl: https://github.com/REPLACE_GITHUB_ORG/microblog-frontend
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 1d
+- concurrentBuild: false
+  kind: pipeline
   displayName: unhibernate
   resumeBlocked: false
-  description: 'simple pipeline with cron trigger to unhibernate every morning'
+  name: unhibernate
+  description: simple pipeline with cron trigger to unhibernate every morning
   definition:
     cpsFlowDefinition:
       sandbox: true
